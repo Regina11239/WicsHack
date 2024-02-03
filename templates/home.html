@@ -1,3 +1,138 @@
-<p>This is the About Us</p>
-<a href="/progress">Progress Tracker</a>
-<a href="/forum">Forum</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <style>
+      .card {
+        box-shadow: 0px 0px 15px -5px;
+        transition: 0.5s;
+        animation: ease-in-out;
+        margin: 15px 15px 15px 15px;
+        display: flex;
+        border: none;
+      }
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 15px 0px;
+      }
+      .bg-cover {
+        background-size: cover !important;
+        height: 300px;
+      }
+      .jumbotron bg-cover text-white:before {
+        filter: 40%;
+      }
+      .row {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      .all {
+        background-image: radial-gradient(#d4c581, #f5a095, #9cdb9e);
+      }
+      .display-4 font-weight-bold {
+        font-weight: strong;
+      }
+      .font-italic text-muted {
+        color: white;
+      }
+      .container py-5 {
+        color: white;
+      }
+      .btn {
+        width: 150px;
+        justify-content: center;
+        padding: 0/5rem;
+        background-color: rgba(7, 69, 12, 0.2);
+        transition: 0.2s;
+        border-radius: 3px;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .btn:hover {
+        background: rgba(27, 156, 252, 0.1);
+        transform: scale();
+      }
+
+      a {
+        text-transform: uppercase;
+        color: #189cfc;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .card-img-top {
+        width: 305px;
+        height: 200px;
+      }
+      .rounded-square {
+        border-radius: 10px;
+      }
+      .highlight {
+        font-weight: bold;
+      }
+      .social-icons {
+        display: flex;
+        justify-content: center;
+          font-size: 60px !important;
+      }
+      .social-icon i {
+        font-size: 60px !important;
+        margin: 0 10px;
+
+      }
+      .card-text a {
+        text-transform: none;
+      }
+      div.all {
+        padding-bottom: 50px;
+      }
+
+      .nav-link{
+        transition: 0.5s;
+        animation: ease-in-out;
+      }
+      .nav-link:hover{
+        color:black;
+         font-weight:bold;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      crossorigin="anonymous"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="js/bootstrap.bundle.min.js"></script> 
+  </head>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/progress">Progress Track <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/forum">Forum <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+    </div>
+  </nav>
+</html>
