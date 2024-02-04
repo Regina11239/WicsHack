@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -8,20 +8,43 @@
       crossorigin="anonymous"
     />
     <style>
-     
       .navbar {
         width: 50%; /* Set the width to occupy half of the page */
         margin: auto; /* Center the navbar horizontally */
         position: relative;
         padding-top: 5px;
-    }
-      .nav-link{
+      }
+      .nav-link {
         transition: 0.5s;
         animation: ease-in-out;
       }
-      .nav-link:hover{
-        color:black;
-         font-weight:bold;
+      .nav-link:hover {
+        color: black;
+        font-weight: bold;
+      }
+
+      /* Center the main content */
+      .centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      /* Pink box with 20% transparency */
+      .pink-box {
+        background-color: rgba(255, 0, 255, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      /* Style for completed tasks */
+      #completedTasks {
+        list-style-type: none;
+        padding: 0;
       }
     </style>
     
@@ -30,31 +53,129 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script defer src="js/bootstrap.bundle.min.js"></script> 
-  </head>
-  <body>
+</head>
+<body>
     <div class="navbar">
-      <img src="/static/images/logo.png" alt="logo" style="width: 150px; height: auto; margin-left: 35px; margin-top: -10px;">
-    <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" style = "margin-left: 0px; font-family: 'Montserrat Alternates'">
-      <a class="navbar-brand" href="#"> </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"> </span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/"> HOME <span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/progress" style="color:#EC297B; font-weight: bold;">STARS<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/forum">DreamHub<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/resume">Dreamtunity<span class="sr-only"></span></a>
-          </li>
-    </nav>
-   </div> 
+        <img src="/static/images/logo.png" alt="logo" style="width: 150px; height: auto; margin-left: 35px; margin-top: -10px;">
+        <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" style="margin-left: 0px; font-family: 'Montserrat Alternates'">
+            <a class="navbar-brand" href="#"> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/"> HOME <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/progress" style="color:#EC297B; font-weight: bold;">STARS<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/forum">DreamHub<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/resume">Dreamtunity<span class="sr-only"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="centered">
+        <div class="pink-box">
+            <h1>To-Do List</h1>
+            <input type="text" id="taskInput" placeholder="Add a task">
+            <button id="addTaskBtn">Add</button>
+            <ul id="todoList">
+            </ul>
+        </div>
     
-  </body>
+        <div class="pink-box">
+            <h2>Jar of Stars</h2>
+            <ul id="starJar">
+              <img src="/static/images/jar.png" alt="Star Image" style="width: 200px; height: 200px;"> 
+            </ul>
+        </div>
+    
+        <div class="pink-box">
+            <h2>Completed Tasks</h2>
+            <ul id="completedTasks">
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const todoList = document.getElementById("todoList");
+        const starJar = document.getElementById("starJar");
+        const completedTasks = document.getElementById("completedTasks");
+        const taskInput = document.getElementById("taskInput");
+        const addTaskBtn = document.getElementById("addTaskBtn");
+
+        // Function to add a star to the jar
+        function addStar(taskName) {
+            const star = document.createElement("li");
+            star.innerHTML = `<span class="star">&#9733;</span> ${taskName}`;
+            starJar.appendChild(star);
+        }
+
+        // Function to add a completed task
+        function addCompletedTask(taskName) {
+            const completedTask = document.createElement("li");
+            completedTask.innerHTML = taskName;
+            completedTasks.appendChild(completedTask);
+        }
+
+        // Add event listeners to checkboxes
+        function addCheckboxEventListener(checkbox) {
+            checkbox.addEventListener("change", function () {
+                const taskName = this.parentElement.textContent.trim();
+
+                if (this.checked) {
+                    this.parentElement.classList.add("completed");
+                    addStar(taskName);
+                    addCompletedTask(taskName);
+                } else {
+                    this.parentElement.classList.remove("completed");
+                    // Remove star from jar
+                    const stars = starJar.getElementsByTagName("li");
+                    for (let i = 0; i < stars.length; i++) {
+                        if (stars[i].textContent.includes(taskName)) {
+                            stars[i].remove();
+                            break;
+                        }
+                    }
+                    // Remove completed task
+                    const completed = completedTasks.getElementsByTagName("li");
+                    for (let i = 0; i < completed.length; i++) {
+                        if (completed[i].textContent === taskName) {
+                            completed[i].remove();
+                            break;
+                        }
+                    }
+                }
+            });
+        }
+
+        // Add a new task when the "Add" button is clicked
+        addTaskBtn.addEventListener("click", function () {
+            const taskName = taskInput.value.trim();
+            if (taskName !== "") {
+                const newTask = document.createElement("li");
+                newTask.innerHTML = `<input type="checkbox"> ${taskName}`;
+                todoList.appendChild(newTask);
+                taskInput.value = ""; // Clear the input field
+                const checkbox = newTask.querySelector("input[type=checkbox]");
+                addCheckboxEventListener(checkbox);
+            }
+        });
+
+        // Add a new task when Enter key is pressed in the input field
+        taskInput.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                addTaskBtn.click();
+            }
+        });
+    </script>
+</body>
 </html>
+
