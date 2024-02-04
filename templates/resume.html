@@ -64,11 +64,11 @@
             <h5 class="card-title">Resume Review</h5>
             <form id="resumeForm" enctype="multipart/form-data">
               <div class="mb-3">
-                <label for="resumeFile" class="form-label">Upload your resume</label>
+                <label for="resumeFile" class="form-label">Upload your resume (PDF, DOC, DOCX)</label>
                 <input type="file" class="form-control" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx" required>
               </div>
               <div class="btn-container">
-                <button type="submit" class="btn btn-primary">Submit Resume</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>
@@ -76,5 +76,44 @@
       </div>
     </div>
   </div>
+
+  <!-- Section to display feedback -->
+  <div class="container mt-3" id="feedbackSection" style="display:none;">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Feedback</h5>
+                    <div id="feedbackContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('resumeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        
+        fetch('/upload_resume', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle response data
+            console.log(data);
+            document.getElementById('parsedResumeData').style.display = 'block'; // Corrected ID
+            // Here you would format and insert the data into the 'parsedDataContent' div
+            document.getElementById('parsedDataContent').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error(error);
+        });
+    });
+  </script>
+
 </body>
 </html>
