@@ -65,10 +65,10 @@
         <div class="list" draggable="true"><img src="/static/images/toDo.png">List Item 5</div>
       </div>
       <section>
-        <div id = "upper_left">Cell 1</div>
-        <div id = "upper right">Cell 2</div>
-        <div id = "lower_left">Cell 3</div>
-        <div id = "lower_right">Cell 4</div>
+        <div id = "upper_left"></div>
+        <div id = "upper_right"></div>
+        <div id = "lower_left"></div>
+        <div id = "lower_right"></div>
       </section>
     </div>
    
@@ -103,6 +103,71 @@
     let lists = document.getElementsByClassName("list");
     let leftBox = document.getElementById("left");
     let upper_leftBox = document.getElementById("upper_left");
+    let upper_rightBox = document.getElementById("upper_right");
+    let lower_rightBox = document.getElementById("lower_right");
+    let lower_leftBox = document.getElementById("lower_left");
+    for(list of lists){
+      list.addEventListener("dragstart", function(e){
+        let selected = e.target; // the dragged elem 
+        upper_leftBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        upper_leftBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          upper_leftBox.style.height = "235px";
+          upper_leftBox.appendChild(selected);
+         
+          selected = null;
+        });
+        leftBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        leftBox.addEventListener("drop", function(e){
+          selected.style.height= "60px";
+          selected.style.width = "260px";
+          leftBox.appendChild(selected);
+          selected = null;
+        });
+        upper_rightBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        upper_rightBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          upper_rightBox.appendChild(selected);
+          selected = null;
+        });
+        lower_rightBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        lower_rightBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          lower_rightBox.appendChild(selected);
+          selected = null;
+        });
+        lower_leftBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        lower_leftBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          lower_leftBox.appendChild(selected);
+          selected = null;
+        });
+      })
+    }
+    function handleDrop(selected, dropBox) {
+     
+      selected.style.height = "20px"; // Adjust the height as needed
+      dropBox.appendChild(selected);
+      selected = null;
+  }
+  </script>
+  <!--let lists = document.getElementsByClassName("list");
+    let leftBox = document.getElementById("left");
+    let upper_leftBox = document.getElementById("upper_left");
     
     for(list of lists){
       list.addEventListener("dragstart", function(e){
@@ -123,7 +188,11 @@
         });
       })
     }
-    
-  </script>
+    function handleDrop(selected, dropBox) {
+      dropBox.appendChild(selected);
+      selected.style.width = "100%"; // Adjust the width as needed
+      selected.style.height = "80px"; // Adjust the height as needed
+      selected = null;
+  }-->
   </body>
 </html>
