@@ -25,13 +25,13 @@
       }
     </style>
     
-    <link rel="stylesheet" href="{{ url_for('static', filename='forum.css') }}" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" crossorigin="anonymous" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat Alternates' rel='stylesheet'>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script defer src="js/bootstrap.bundle.min.js"></script> 
   </head>
-  <body>
+  <body style="background-color:#FFCBE8">
     <div class="navbar">
       <img src="/static/images/logo.png" alt="logo" style="width: 150px; height: auto; margin-left: 35px; margin-top: -10px;">
     <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" style = "margin-left: 0px; font-family: 'Montserrat Alternates'">
@@ -41,20 +41,40 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/"> HOME <span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/progress">STARS<span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/forum" style="color:#EC297B; font-weight: bold;">DreamHub<span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/resume">Dreamtunity<span class="sr-only"></span></a>
-              </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/"> Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/progress">Progress Track <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/forum" style="color:#EC297B; font-weight: bold;">Forum <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/resume" > Resume <span class="sr-only"></span></a>
+          </li>
     </nav>
    </div>   
-  
-  </body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Resume Review</h5>
+              <form id="resumeForm" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="resumeFile" class="form-label">Upload your resume</label>
+                  <input type="file" class="form-control" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx" required>
+                </div>
+                <div class="btn-container">
+                  <button type="submit" class="btn btn-primary">Submit Resume</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <body>
+   
 </html>

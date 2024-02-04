@@ -32,26 +32,29 @@
     <script defer src="js/bootstrap.bundle.min.js"></script> 
   </head>
   <body>
-  <div class="navbar">
-    <img src="/static/images/logo.png" alt="logo" style="width: 150px; height: auto; margin-left: 35px; margin-top: -10px;"> 
-  <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" style = "margin-left: 0px; font-family: 'Montserrat Alternates'">
-    <a class="navbar-brand" href="#"> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"> </span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/" style="color:#EC297B; font-weight: bold;"> Home <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/progress">Progress Track <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/forum">Forum <span class="sr-only"></span></a>
-        </li>
-  </nav>
-</div>
+    <div class="navbar">
+      <img src="/static/images/logo.png" alt="logo" style="width: 150px; height: auto; margin-left: 35px; margin-top: -10px;">
+    <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent" style = "margin-left: 0px; font-family: 'Montserrat Alternates'">
+      <a class="navbar-brand" href="#"> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"> </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"style="color:#EC297B; font-weight: bold;"> HOME <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/progress">STARS<span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/forum">DreamHub<span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/resume">Dreamtunity<span class="sr-only"></span></a>
+          </li>
+    </nav>
+   </div>   
   
    
     
@@ -65,10 +68,10 @@
         <div class="list" draggable="true"><img src="/static/images/toDo.png">List Item 5</div>
       </div>
       <section>
-        <div id = "upper_left">Cell 1</div>
-        <div id = "upper right">Cell 2</div>
-        <div id = "lower_left">Cell 3</div>
-        <div id = "lower_right">Cell 4</div>
+        <div id = "upper_left"></div>
+        <div id = "upper_right"></div>
+        <div id = "lower_left"></div>
+        <div id = "lower_right"></div>
       </section>
     </div>
    
@@ -103,6 +106,71 @@
     let lists = document.getElementsByClassName("list");
     let leftBox = document.getElementById("left");
     let upper_leftBox = document.getElementById("upper_left");
+    let upper_rightBox = document.getElementById("upper_right");
+    let lower_rightBox = document.getElementById("lower_right");
+    let lower_leftBox = document.getElementById("lower_left");
+    for(list of lists){
+      list.addEventListener("dragstart", function(e){
+        let selected = e.target; // the dragged elem 
+        upper_leftBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        upper_leftBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          upper_leftBox.style.height = "235px";
+          upper_leftBox.appendChild(selected);
+         
+          selected = null;
+        });
+        leftBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        leftBox.addEventListener("drop", function(e){
+          selected.style.height= "60px";
+          selected.style.width = "260px";
+          leftBox.appendChild(selected);
+          selected = null;
+        });
+        upper_rightBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        upper_rightBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          upper_rightBox.appendChild(selected);
+          selected = null;
+        });
+        lower_rightBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        lower_rightBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          lower_rightBox.appendChild(selected);
+          selected = null;
+        });
+        lower_leftBox.addEventListener("dragover", function(e){
+          e.preventDefault();
+        });
+        lower_leftBox.addEventListener("drop", function(e){
+          selected.style.width = "70%"; // Adjust the width as needed
+          selected.style.height = "20px"; // Adjust the height as needed
+          lower_leftBox.appendChild(selected);
+          selected = null;
+        });
+      })
+    }
+    function handleDrop(selected, dropBox) {
+     
+      selected.style.height = "20px"; // Adjust the height as needed
+      dropBox.appendChild(selected);
+      selected = null;
+  }
+  </script>
+  <!--let lists = document.getElementsByClassName("list");
+    let leftBox = document.getElementById("left");
+    let upper_leftBox = document.getElementById("upper_left");
     
     for(list of lists){
       list.addEventListener("dragstart", function(e){
@@ -123,7 +191,11 @@
         });
       })
     }
-    
-  </script>
+    function handleDrop(selected, dropBox) {
+      dropBox.appendChild(selected);
+      selected.style.width = "100%"; // Adjust the width as needed
+      selected.style.height = "80px"; // Adjust the height as needed
+      selected = null;
+  }-->
   </body>
 </html>

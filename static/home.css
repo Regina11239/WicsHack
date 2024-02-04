@@ -18,24 +18,29 @@
   
   section {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* set column sizes here */
-    grid-template-rows: auto auto; /* we want two rows */
-
+    /* grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); /* set column sizes here */
+    /* grid-template-rows: auto auto; we want two rows */ 
+     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); /* set column sizes here */
+    grid-template-rows: 2fr 2fr; /* we want two rows */
     grid-gap: 10px; /* how far between cells? */
     grid-auto-flow: column; /* fill in by column, not row */
-
     /* temporary property for visualization */
+    min-height: 0;  /* NEW */
+    min-width: 0;   
     height: 490px;
     width: 535px;
     margin-left: 50px;
     margin-top: 70px;
     padding: 0px;
-    float: right;
-    border: 2px dashed #fff;
+    overflow: hidden;
 }
 
 section div {
-  border: 1px solid #000;
+  max-width: 100%;
+  height:100%;
+  /* box-sizing: border-box; */
+  overflow: hidden;
+  min-width: 0;     
 }
 
   .segment {
@@ -53,13 +58,16 @@ section div {
     margin-right: 40px;
     margin-top: 130px;
     
-    border: 2px dashed #fff;
+    /* border: 2px dashed #fff; */
     padding:0px;
     float: left;
     
   } 
+  
   .list{
     background-image: url('/static/images/toDo.png');
+    /* max-width: 100%; Ensure the list items don't exceed the cell width */
+    /* box-sizing: border-box; */
     height: 60px;
     margin: 15px;
     color:black;
