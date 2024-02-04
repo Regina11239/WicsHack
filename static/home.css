@@ -1,0 +1,86 @@
+/* div#navbar {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    width: 80%;
+  } */
+
+  body {
+    background-image: url('/static/images/homeBg.png'); /* Adjust the path based on your directory structure */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh; /* Ensure the background covers the entire viewport height */
+    margin: 0; /* Remove default margin */
+    image-orientation: from-image; /* Correct image orientation */
+  }
+  
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* set column sizes here */
+    grid-template-rows: auto auto; /* we want two rows */
+
+    grid-gap: 10px; /* how far between cells? */
+    grid-auto-flow: column; /* fill in by column, not row */
+
+    /* temporary property for visualization */
+    height: 490px;
+    width: 535px;
+    margin-left: 50px;
+    margin-top: 70px;
+    padding: 0px;
+    float: right;
+    border: 2px dashed #fff;
+}
+
+section div {
+  border: 1px solid #000;
+}
+
+  .segment {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+
+
+  #left{
+    /* display: in-line block; */
+    width: 295px;
+    min-height: 400px;
+    margin-left: 190px;
+    margin-right: 40px;
+    margin-top: 130px;
+    
+    border: 2px dashed #fff;
+    padding:0px;
+    float: left;
+    
+  } 
+  .list{
+    background-image: url('/static/images/toDo.png');
+    height: 60px;
+    margin: 15px;
+    color:black;
+    display:flex;
+    align-items: center;
+    cursor:grab;
+  }
+  .container{
+    width: 100%;
+    padding-top: 0px;
+    margin-top: 0px;
+    border-top:0px;
+    display:flex;
+    align-items: start;
+    /* justify-content:center;  */
+  }
+
+  .list img{
+    width: 10px;
+    /* margin-right: 15px;
+    margin-left: 20px; */
+  }
+  /* Other styles remain the same */
+  

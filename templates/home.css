@@ -1,9 +1,0 @@
-div#navbar {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
-    width: 80%;
-    background-color: #0050ca;
-  }
-  
