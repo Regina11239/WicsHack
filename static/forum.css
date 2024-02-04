@@ -28,7 +28,7 @@ body {
     padding: 10px;
     margin:4px;
     border-radius: 5px;
-    background-color:#141114;
+    background-color:#f8f4f8c3;
 }
 
 .subforum-description *{
@@ -47,6 +47,17 @@ body {
 
 .subforum-devider{
     display: none;   
+}
+
+.title {
+    text-align: center; /* Center the text horizontally */
+    width: 100%; /* Ensure the element spans the full width */
+    margin-top: 20px; /* Adjust as needed for spacing */
+    margin-bottom: 20px; /* Adjust as needed for spacing */
+  }
+
+.centered-text {
+    text-align: center; /* Center the text horizontally */
 }
 
 
