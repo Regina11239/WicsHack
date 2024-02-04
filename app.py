@@ -7,12 +7,16 @@ def home():
     return render_template('home.html')
 
 @app.route('/progress')
-def about():
+def progress():
     return render_template('progress.html')
 
 @app.route('/forum')
-def contact():
+def forum():
     return render_template('forum.html')
+
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

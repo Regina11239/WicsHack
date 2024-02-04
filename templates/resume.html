@@ -122,19 +122,40 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/home">Home</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/progress">Progress Track</a>
+          <a class="nav-link" href="/progress">Progress Track </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/forum">Forum <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/forum">Forum</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/resume">Resume</a>
+          <a class="nav-link" href="/resume">Resume <span class="sr-only">(current)</span></a>
         </li>
     </div>
   </nav>
   <body style="background-color:#FFCBE8">
-  </body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Resume Review</h5>
+              <form id="resumeForm" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="resumeFile" class="form-label">Upload your resume</label>
+                  <input type="file" class="form-control" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx" required>
+                </div>
+                <div class="btn-container">
+                  <button type="submit" class="btn btn-primary">Submit Resume</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <body>
+   
 </html>
