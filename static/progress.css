@@ -1,0 +1,10 @@
+body {
+    background-image: url('/static/images/homeBg.png'); /* Adjust the path based on your directory structure */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh; /* Ensure the background covers the entire viewport height */
+    margin: 0; /* Remove default margin */
+    image-orientation: from-image; /* Correct image orientation */
+  }
+  
